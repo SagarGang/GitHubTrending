@@ -1,0 +1,2 @@
+rootProject.name='GitHubTrendingRepo'
+include ':app'
