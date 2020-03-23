@@ -1,5 +1,6 @@
 package com.abhijith.assignment.github_trending.repositories
 
+import ReposParam
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -13,20 +14,16 @@ import retrofit2.Response
 class GithubRepository(private val context: Context) {
 
     private var githubRepoApiClient: ServiceGenerator = ServiceGenerator(context)
-    private val repository: MutableLiveData<List<RepositoryResponse.Item>> =
+    private val repository: MutableLiveData<MutableList<RepositoryResponse.Item>> =
         MutableLiveData()
 
-    val repositoryList :LiveData<List<RepositoryResponse.Item>>
+    val repositoryList :LiveData<MutableList<RepositoryResponse.Item>>
         get() = repository
 
     fun getTrendingReposFromApi(
-        query: String,
-        sort: String,
-        order: String,
-        page: Int,
-        perPage: Int
+        reposParam:ReposParam
     ) {
-        githubRepoApiClient.getRepoApiService().getRepos(query, sort, order, page, perPage)
+        githubRepoApiClient.getRepoApiService().getRepos(reposParam.searchTerm, reposParam.sort.value, reposParam.order.value, reposParam.page, reposParam.perPage)
             .enqueue(object : Callback<RepositoryResponse> {
                 override fun onFailure(call: Call<RepositoryResponse>, t: Throwable) {
 
@@ -37,7 +34,7 @@ class GithubRepository(private val context: Context) {
                     response: Response<RepositoryResponse>
                 ) {
                     if (response.isSuccessful && response.code() == 200) {
-                        repository.value = response.body()?.items
+                        repository.value = response.body()?.items as MutableList<RepositoryResponse.Item>
                     }
                 }
 

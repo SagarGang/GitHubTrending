@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.app.githubtrendingrepo.R
 import com.app.githubtrendingrepo.model.RepositoryResponse
-import com.bumptech.glide.Glide
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_repo.view.*
 
 class ReposAdapter :
@@ -48,16 +48,9 @@ class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         itemView.setOnClickListener {
 
         }
-        Glide.with(itemView.img_owner_avatar.context)
-            .load(itemView.img_owner_avatar)
-            .circleCrop()
-            .placeholder(R.mipmap.ic_launcher_round)
-            .error(R.mipmap.ic_launcher_round)
-            .into(itemView.img_owner_avatar)
+        Picasso.get().load(repo.owner.avatarUrl).into(itemView.img_owner_avatar)
         itemView.txt_repo_title.text = repo.name
-
         itemView.txt_repo_description.text = repo.description
-
         itemView.txt_repo_watchers.text = " " + String.format("%,d", repo?.watchers)
 
     }
