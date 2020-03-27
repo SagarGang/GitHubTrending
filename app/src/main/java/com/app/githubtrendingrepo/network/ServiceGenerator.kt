@@ -38,7 +38,7 @@ class ServiceGenerator(private val context: Context) {
             val response: Response = chain.proceed(chain.request())
             val cacheControl = CacheControl.Builder()
                 .maxAge(
-                    2,
+                    5,
                     TimeUnit.SECONDS
                 )
                 .build()

@@ -39,7 +39,7 @@
         app:layout_constraintTop_toBottomOf="@+id/img_owner_avatar"
         tools:text="Sample Name" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txt_repo_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_repo_title"
         tools:text="idy ifyuruify igy uifdyiguyfdiug yfdiuf dy ugy ui ydsiuyf iudsyf" />
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txt_repo_watchers"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
