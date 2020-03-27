@@ -33,10 +33,12 @@ android {
 dependencies {
 
 
-    def retrofit_version = "2.7.2"
-    def rx_version = "3.0.0"
+    def retrofit_version = "2.3.0"
+    def rx_version = "2.3.0"
+    def rx_android = "2.1.1"
     def okhttp3_version = "3.14.4"
     def lifecycle_version = "2.2.0"
+    def glide = "4.11.0"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -47,20 +49,23 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
-    //retofit
+    //retrofit
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
 
-    //rxJava and rxAndroid
-    implementation "io.reactivex.rxjava3:rxjava:$rx_version"
-    implementation "io.reactivex.rxjava3:rxandroid:$rx_version"
+    //rx
+    implementation "io.reactivex.rxjava2:rxkotlin:$rx_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rx_android"
+
 
     //Okhttp3
     implementation "com.squareup.okhttp3:okhttp:$okhttp3_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$okhttp3_version"
 
-    // Picasso
-    implementation 'com.squareup.picasso:picasso:2.71828'
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$glide"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glide"
 
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
     implementation "com.google.android.material:material:1.2.0-alpha05"

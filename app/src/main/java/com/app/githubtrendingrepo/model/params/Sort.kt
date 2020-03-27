@@ -1,3 +1,4 @@
+package com.app.githubtrendingrepo.network
 
 enum class Sort(val value: String) {
     STARS("stars"),

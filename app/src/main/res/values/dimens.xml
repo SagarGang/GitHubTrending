@@ -6,6 +6,8 @@
     <dimen name="button_height">45dp</dimen>
     <dimen name="button_text_size">17sp</dimen>
     <dimen name="mp_80">80dp</dimen>
+    <dimen name="mp_50">50dp</dimen>
     <dimen name="mp_4">4dp</dimen>
     <dimen name="mp_16">16dp</dimen>
+    <dimen name="mp_24">24dp</dimen>
 </resources>

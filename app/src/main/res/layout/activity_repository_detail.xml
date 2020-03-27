@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.repodetail.RepositoryDetail">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_owner_avatar"
+        android:layout_width="@dimen/mp_80"
+        android:layout_height="@dimen/mp_80"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="@dimen/mp_50"
+        android:scaleType="fitXY"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="45dp" />
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/txt_repo_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mp_24"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/repo_title_list_size"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/gl_start"
+        app:layout_constraintTop_toBottomOf="@+id/img_owner_avatar"
+        tools:text="Sample Name" />
+
+    <TextView
+        android:id="@+id/txt_repo_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mp_16"
+        android:layout_marginEnd="@dimen/mp_16"
+        android:textSize="@dimen/repo_description_text_size"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/gl_start"
+        app:layout_constraintTop_toBottomOf="@+id/txt_repo_title"
+        tools:text="idy ifyuruify igy uifdyiguyfdiug yfdiuf dy ugy ui ydsiuyf iudsyf" />
+
+    <TextView
+        android:id="@+id/txt_repo_watchers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mp_8"
+        android:drawableStart="@drawable/ic_eye"
+        android:drawablePadding="@dimen/mp_4"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toStartOf="@+id/txt_repo_description"
+        app:layout_constraintTop_toBottomOf="@+id/txt_repo_description"
+        tools:text="12" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_pro_link"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mp_8"
+        android:layout_marginEnd="@dimen/mp_16"
+        android:drawableStart="@drawable/project_link"
+        android:drawablePadding="@dimen/mp_4"
+        android:textColor="@android:color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/gl_start"
+        app:layout_constraintTop_toBottomOf="@+id/txt_repo_watchers"
+        tools:text="idy ifyuruify igy uifdyiguyfdiug yfdiuf dy ugy ui ydsiuyf iudsyf" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
