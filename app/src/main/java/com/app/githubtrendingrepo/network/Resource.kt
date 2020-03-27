@@ -1,8 +1,10 @@
 package com.app.githubtrendingrepo.network
 
 
-class Resource<T> private constructor(val status: Status, val data: T?,
-                                      val message: String?) {
+class Resource<T> private constructor(
+    val status: Status, val data: T?,
+    val message: String?
+) {
     companion object {
 
         fun <T> success(data: T): Resource<T> {
@@ -21,8 +23,5 @@ class Resource<T> private constructor(val status: Status, val data: T?,
             return Resource(Status.NETWORK_ERROR, null, null)
         }
 
-        fun <T> idle(): Resource<T> {
-            return Resource(Status.IDLE, null, null)
-        }
     }
 }

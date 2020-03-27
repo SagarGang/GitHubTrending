@@ -114,7 +114,6 @@ class HomeActivity : AppCompatActivity(), ViewHolder.OnRepoSelectedListener {
         filterRepoSearchList = originalReposSearchList.filter { repo ->
             repo.name!!.contains(s.toString(), true)
         }
-
         listAdapter.repos = filterRepoSearchList as MutableList<RepositoryResponse.Item>
     }
 

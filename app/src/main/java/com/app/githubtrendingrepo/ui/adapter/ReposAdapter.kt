@@ -3,7 +3,6 @@ package com.app.githubtrendingrepo.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.app.githubtrendingrepo.R
 import com.app.githubtrendingrepo.model.RepositoryResponse
@@ -57,7 +56,8 @@ class ViewHolder(v: View) : RecyclerView.ViewHolder(v) {
             .into(itemView.img_owner_avatar)
         itemView.txt_repo_title.text = repo.name
         itemView.txt_repo_description.text = repo.description
-        itemView.txt_repo_watchers.text = String.format(itemView.context.getString(R.string.watchers),repo.watchers)
+        itemView.txt_repo_watchers.text =
+            String.format(itemView.context.getString(R.string.watchers), repo.watchers)
 
     }
 

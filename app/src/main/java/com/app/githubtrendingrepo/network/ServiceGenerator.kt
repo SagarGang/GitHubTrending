@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit
 
 class ServiceGenerator(private val context: Context) {
 
-    val cacheSize = (5 * 1024 * 1024).toLong() // 5 Mb to store the cache
+    val cacheSize = (5 * 1024 * 1024).toLong()
 
     private val HEADER_CACHE_CONTROL = "Cache-Control"
     private val HEADER_PRAGMA = "Pragma"
@@ -20,7 +20,7 @@ class ServiceGenerator(private val context: Context) {
 
     private val okHttpClient = OkHttpClient.Builder()
         .cache(cache())
-        .addNetworkInterceptor(networkInterceptor()) // only used when network is on
+        .addNetworkInterceptor(networkInterceptor())
         .addInterceptor(offlineInterceptor()).build()
 
 

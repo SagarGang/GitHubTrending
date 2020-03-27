@@ -35,7 +35,7 @@ object Connection {
                     return true
                 }
             } catch (e: Exception) {
-                Log.i("Exception", "" + e.message)
+                Log.i("Exception", "Stack " + e.message)
             }
         }
         Log.i("Exception", "Network is available : FALSE ")

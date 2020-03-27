@@ -2,6 +2,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.app.githubtrendingrepo.R
 import com.app.githubtrendingrepo.model.RepositoryResponse
 import com.app.githubtrendingrepo.network.GithubRepository
 import com.app.githubtrendingrepo.network.ReposParam
@@ -25,13 +26,18 @@ class RepoListViewModel(application: Application) : AndroidViewModel(application
 
     val repositoryItemList: LiveData<Resource<List<RepositoryResponse.Item>>> get() = repoItemList
 
+    private val noDataFound: String by lazy {
+        application.baseContext.getString(R.string.no_internet_connection)
+    }
+
+
     init {
         githubRepoApiClient = ServiceGenerator(application.applicationContext)
         repository = GithubRepository(githubRepoApiClient)
     }
 
-    fun getRepos(reposParam: ReposParam,requestType:Boolean) {
-        if (requestType){
+    fun getRepos(reposParam: ReposParam, requestType: Boolean) {
+        if (requestType) {
             githubRepoApiClient.forceRequest(requestType)
         }
         repoItemList.value = Resource.loading()

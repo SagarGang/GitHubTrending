@@ -15,14 +15,13 @@ class RepositoryDetail : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_repository_detail)
-
+        if (intent.hasExtra(Constants.REPOSITORY)) {
+            repositoryDetail = intent.extras?.get(Constants.REPOSITORY) as RepositoryResponse.Item
+        }
     }
 
     override fun onStart() {
         super.onStart()
-        if (intent.hasExtra(Constants.REPOSITORY)) {
-            repositoryDetail = intent.extras?.get(Constants.REPOSITORY) as RepositoryResponse.Item
-        }
 
         Glide.with(this)
             .load(repositoryDetail?.owner?.avatarUrl)
@@ -35,6 +34,5 @@ class RepositoryDetail : AppCompatActivity() {
         txt_repo_watchers.text =
             String.format(getString(R.string.watchers), repositoryDetail?.watchers)
         tv_pro_link.text = repositoryDetail?.url
-
     }
 }
