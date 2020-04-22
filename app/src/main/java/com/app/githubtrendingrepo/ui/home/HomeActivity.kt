@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
@@ -21,12 +22,13 @@ import com.app.githubtrendingrepo.ui.adapter.ViewHolder
 import com.app.githubtrendingrepo.ui.repodetail.RepositoryDetail
 import com.app.githubtrendingrepo.util.Constants
 import com.app.githubtrendingrepo.util.showToast
+import com.app.githubtrendingrepo.util.toast
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity(), ViewHolder.OnRepoSelectedListener {
 
     private lateinit var repoListViewModel: RepoListViewModel
-    private var LOG_TAG = HomeActivity::class.java.simpleName
+    private var TAG = HomeActivity::class.java.simpleName
     private var PAGE = 1
     private var filterRepoSearchList: List<RepositoryResponse.Item> = mutableListOf()
     private var originalReposSearchList: MutableList<RepositoryResponse.Item> = mutableListOf()
@@ -77,6 +79,7 @@ class HomeActivity : AppCompatActivity(), ViewHolder.OnRepoSelectedListener {
                     progress_bar.visibility = View.GONE
                 }
                 Status.NETWORK_ERROR -> {
+                    toast("No",Toast.LENGTH_LONG)
                     showToast(this, getString(R.string.no_internet_connection))
                     progress_bar.visibility = View.GONE
                 }
